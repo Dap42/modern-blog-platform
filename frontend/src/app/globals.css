@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255; /* Light mode foreground */
+  --background-start-rgb: 240, 242, 245; /* Light mode background start */
+  --background-end-rgb: 255, 255, 255; /* Light mode background end */
+}
+
+/* Dark mode styles */
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 18, 24, 39; /* Dark mode background start (primary-950) */
+  --background-end-rgb: 30, 41, 59; /* Dark mode background end (secondary-900) */
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: var(--background-start-rgb); /* Use solid background for body */
+  font-family: "Inter", sans-serif;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth transitions */
+}
+
+/* Apply a subtle gradient to the main content area for visual depth */
+.dark main {
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Refined Glassmorphism utilities */
+  .glass {
+    @apply bg-glass-light backdrop-blur-sm border border-white/20 rounded-xl;
+  }
+
+  .dark .glass {
+    @apply bg-glass-dark border-white/10;
+  }
+
+  .glass-card {
+    @apply bg-glass-light backdrop-blur-md border border-white/10 rounded-2xl shadow-glass;
+  }
+
+  .dark .glass-card {
+    @apply bg-glass-dark border-white/5 shadow-glass-dark;
+  }
+
+  /* Modern button styles */
+  .btn-modern {
+    @apply relative overflow-hidden px-6 py-3 rounded-xl font-medium transition-all duration-300;
+    @apply bg-glass-gradient border border-white/20 text-white hover:border-primary-300 hover:shadow-modern;
+  }
+
+  .dark .btn-modern {
+    @apply bg-glass-gradient-dark border-white/10 hover:border-primary-500;
+  }
+
+  .btn-modern:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-modern:active {
+    transform: translateY(0);
+  }
+
+  /* Input styles */
+  .input-modern {
+    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300;
+  }
+
+  .dark .input-modern {
+    @apply bg-secondary-800/50 border-secondary-700 focus:ring-primary-400;
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-gradient-modern bg-clip-text text-transparent;
+  }
+
+  /* Markdown prose styling */
+  .prose-invert {
+    --tw-prose-body: theme("colors.white");
+    --tw-prose-headings: theme("colors.white");
+    --tw-prose-lead: theme("colors.white");
+    --tw-prose-links: theme("colors.primary.300");
+    --tw-prose-bold: theme("colors.white");
+    --tw-prose-counters: theme("colors.white");
+    --tw-prose-bullets: theme("colors.white");
+    --tw-prose-hr: theme("colors.white");
+    --tw-prose-quotes: theme("colors.white");
+    --tw-prose-quote-borders: theme("colors.primary.500");
+    --tw-prose-captions: theme("colors.white");
+    --tw-prose-code: theme("colors.primary.200");
+    --tw-prose-pre-code: theme("colors.primary.200");
+    --tw-prose-pre-bg: theme("colors.secondary.800");
+    --tw-prose-th-borders: theme("colors.white");
+    --tw-prose-td-borders: theme("colors.white");
+    --tw-prose-invert-body: theme("colors.white");
+    --tw-prose-invert-headings: theme("colors.white");
+    --tw-prose-invert-lead: theme("colors.white");
+    --tw-prose-invert-links: theme("colors.primary.300");
+    --tw-prose-invert-bold: theme("colors.white");
+    --tw-prose-invert-counters: theme("colors.white");
+    --tw-prose-invert-bullets: theme("colors.white");
+    --tw-prose-invert-hr: theme("colors.white");
+    --tw-prose-invert-quotes: theme("colors.white");
+    --tw-prose-invert-quote-borders: theme("colors.primary.500");
+    --tw-prose-invert-captions: theme("colors.white");
+    --tw-prose-invert-code: theme("colors.primary.200");
+    --tw-prose-invert-pre-code: theme("colors.primary.200");
+    --tw-prose-invert-pre-bg: theme("colors.secondary.800");
+    --tw-prose-invert-th-borders: theme("colors.white");
+    --tw-prose-invert-td-borders: theme("colors.white");
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: theme("colors.secondary.800");
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: theme("colors.primary.600");
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: theme("colors.primary.500");
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: theme("colors.secondary.900");
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: theme("colors.primary.700");
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: theme("colors.primary.600");
+}
