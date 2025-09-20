@@ -6,7 +6,6 @@ This is a modern blogging platform built with a Next.js frontend and a Node.js/E
 
 - **Create New Posts:** Easily compose new blog posts with a rich text editor that supports Markdown.
 - **Markdown Preview:** See a live preview of your Markdown content as you type.
-- **Edit Existing Posts:** Modify previously saved posts with the same intuitive editor.
 - **Clear Markdown Tips:** Prominently displayed tips guide users on how to use Markdown effectively, with visual examples.
 - **Responsive Design:** A sleek and modern user interface that adapts to various screen sizes.
 - **Dark Mode Toggle:** Switch between dark and light themes for comfortable viewing.
