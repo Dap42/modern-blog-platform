@@ -26,7 +26,7 @@ Make sure you have the following installed:
 
 ```bash
 git clone https://github.com/Dap42/modern-blog-platform.git
-cd blogging-platform
+cd modern-blog-platform
 ```
 
 ### 2. Backend Setup
