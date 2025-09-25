@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Plus, Moon, Sun, Sparkles } from "lucide-react";
+import { Plus, Sparkles } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { tomorrow } from "react-syntax-highlighter/dist/cjs/styles/prism";
@@ -24,7 +24,6 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [editingPost, setEditingPost] = useState<Post | null>(null); // New state for editing
-  const [darkMode, setDarkMode] = useState(true);
 
   // Fetch posts from API
   const fetchPosts = async () => {
@@ -56,13 +55,8 @@ export default function Home() {
     setShowCreateForm(true);
   };
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    document.documentElement.classList.toggle("dark");
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-secondary-950 to-secondary-800 text-white font-sans">
+    <div className="min-h-screen font-sans bg-gradient-to-br from-secondary-950 to-secondary-800 text-white">
       {/* Header */}
       <header className="glass-card sticky top-0 z-50 border-b border-white/10 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -72,9 +66,9 @@ export default function Home() {
                 <Sparkles className="w-6 h-6 text-white animate-pulse-light" />
               </div>
               <div>
-                <h1 className="text-3xl font-bold text-gradient tracking-tight">
+                <h3 className="text-3xl font-bold tracking-tight text-gradient">
                   Modern Blog
-                </h1>
+                </h3>
                 <p className="text-sm text-primary-200/80">
                   Beautifully crafted posts
                 </p>
@@ -82,18 +76,6 @@ export default function Home() {
             </div>
 
             <div className="flex items-center space-x-4">
-              <button
-                onClick={toggleDarkMode}
-                className="btn-modern p-2 text-primary-300 hover:text-primary-100"
-                aria-label="Toggle dark mode"
-              >
-                {darkMode ? (
-                  <Sun className="w-5 h-5" />
-                ) : (
-                  <Moon className="w-5 h-5" />
-                )}
-              </button>
-
               <button
                 onClick={() => {
                   setShowCreateForm(true);
@@ -147,7 +129,7 @@ export default function Home() {
                 <h3 className="text-2xl font-semibold text-white mb-3">
                   No posts yet
                 </h3>
-                <p className="text-primary-200/80 mb-8">
+                <p className="mb-8 text-primary-200/80">
                   Create your first blog post to get started with this beautiful
                   platform.
                 </p>

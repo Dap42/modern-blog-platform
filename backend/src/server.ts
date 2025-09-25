@@ -17,7 +17,11 @@ const PORT = process.env.PORT || 8000;
 app.use(helmet());
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://127.0.0.1:3000"],
+    origin: [
+      "http://localhost:3000",
+      "http://127.0.0.1:3000",
+      ...(process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : []), // Conditionally add Vercel frontend URL
+    ],
     credentials: true,
   })
 );
